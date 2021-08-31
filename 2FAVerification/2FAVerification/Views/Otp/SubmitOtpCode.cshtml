@@ -1,0 +1,20 @@
+﻿@model OtpModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<form asp-controller="Otp" asp-action="VerifyOtpCode" method="POST">
+    <div class="control">
+        <input type="text" placeholder="Code" name="@Html.NameFor(m => m.Code)" required />
+    </div>
+
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="error-message">@ViewBag.ErrorMessage</div>
+    }
+
+    <div class="actions">
+        <button type="submit" class="btn btn-primary">Send Otp Code</button>
+    </div>
+</form>
